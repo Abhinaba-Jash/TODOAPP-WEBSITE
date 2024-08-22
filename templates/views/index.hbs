@@ -1,0 +1,158 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <!-- <link href="./css/main.css" rel="stylesheet" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+
+  </head>
+  <body class="bg-[#2C2C2C] h-fit w-full relative">
+    <header
+      class="flex flex-col text-white gap-2 lg:flex-row lg:mt-5 lg:mb-20 lg:gap-44 xl:gap-72"
+    >
+      <div
+        class="flex gap-2 items-center ml-1 mt-1 lg:absolute lg:left-3 lg:top-0"
+      >
+        <img
+          id="logoutBtn"
+          class="w-6 hidden hover:cursor-pointer rotate-180"
+          src="assets/img/logout.svg"
+          alt=""
+        />
+        <div
+          class="flex gap-2 items-center hover:cursor-pointer"
+          id="profile_cont"
+        >
+          <img class="w-6" id="profile" src="assets/img/profile.svg" alt="" />
+          <span id="profile_name" class="text-gray-400 ">{{USERNAME}}</span>
+        </div>
+      </div>
+      <div
+        class="flex flex-col items-center text-white gap-2 lg:order-2 lg:self-center"
+      >
+        <h1 class="text-4xl font-semibold">TO-DO NOW</h1>
+        <div class="flex items-center gap-4">
+          <div class="bg-white w-16 h-[1px]"></div>
+          <img class="w-6" src="assets/img/NotePencil.svg" alt="" />
+          <div class="bg-white w-16 h-[1px]"></div>
+        </div>
+        <span id="location_access" class="text-sm text-green-500"></span>
+      </div>
+      <div
+        class="flex justify-between w-full px-4 lg:flex-col lg:order-1 lg:w-fit lg:justify-center lg:mt-8"
+      >
+        <span id="cTime">Time: 02:45 PM</span>
+        <span id="cDate">Date: 23rd Mar 2024</span>
+      </div>
+    </header>
+    <main>
+      <div
+        class="todos flex flex-col px-4 my-8 justify-center gap-4 items-center lg:px-8 lg:min-h-[50vh]"
+      >
+        <div class="flex flex-col w-full gap-4 lg:pl-20 xl:pl-36">
+          <form
+            id="task-form"
+            class="flex w-full items-center justify-center lg:justify-start flex-col gap-1 sm:gap-0 sm:flex-row"
+          >
+            <div
+              class="flex justify-between bg-white items-center rounded-lg sm:rounded-r-none w-full sm:w-[70%] lg:w-[50%]"
+            >
+              <input
+                id="task"
+                class="pl-4 pr-2 py-1 rounded-lg sm:rounded-r-none outline-none w-full sm:w-[70%]"
+                type="text"
+                placeholder="Enter your todos here" 
+                required
+              />
+              <div class="flex pr-1 gap-1">
+
+                <input type="date" id="datePicker" name="date" class="" />
+
+                <input type="time" id="timePicker" name="time" class="" />
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="bg-[#4F4F4F] px-2 py-1 rounded-lg sm:rounded-l-none font-semibold h-fit w-fit text-white"
+              id="add"
+            >
+              Add Task
+            </button>
+          </form>
+          <div class="bg-white lg:w-[60%] h-[0.5px] xl:w-[58%]"></div>
+        </div>
+
+        <div class="flex flex-col gap-4 w-full lg:mt-4" id="task-list">
+
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col mx-4 bg-[#37403D] p-4 rounded-md gap-1 my-12 sm:w-[60%] sm:mx-auto lg:absolute lg:-top-10 lg:right-4 lg:w-fit"
+      >
+        <div class="flex bg-white rounded-md items-center pr-2">
+          <input
+            class="outline-none rounded-md px-2 w-full"
+            type="text"
+            placeholder="Enter a city name"
+            id="city"
+          />
+          <img
+            id="location"
+            class="w-4 cursor-pointer mr-1"
+            src="assets/img/location.png"
+            alt=""
+          />
+          <img
+            id="search"
+            class="w-4 cursor-pointer"
+            src="assets/img/search.svg"
+            alt=""
+          />
+        </div>
+        <div
+          class="flex items-center text-white justify-between px-4 lg:px-0 md:gap-2"
+        >
+          <div class="flex flex-col items-center">
+            <img id="w-icon" class="w-24" src="assets/img/cloud.png" alt="" />
+            <span id="w-temp" class="text-4xl">34&deg;C</span>
+          </div>
+          <div class="flex flex-col">
+            <span id="w-feel">Feels like: 24&deg;C</span>
+            <span id="w-wind">Wind: 24km/hr</span>
+            <span id="w-rain">Rain: 500%</span>
+          </div>
+        </div>
+        <div class="flex text-green-200 gap-2 mt-5">
+          <img class="invert" src="assets/img/location.png" alt="" />
+
+          <span id="w-position">Guwahati, India</span>
+        </div>
+      </div>
+      <h3
+        id="forecast_heading"
+        class="px-4 text-white text-xl pb-4 sm:text-3xl lg:px-8"
+      >
+
+      </h3>
+      <div
+        id="forecast_container"
+        class="flex justify-center gap-2 overflow-auto"
+      >
+
+      </div>
+    </main>
+    <footer>
+      <h3 class="text-center text-white my-6 text-xl">
+        Abhinaba 2024 | &copy;All rights reserved.
+      </h3>
+    </footer>
+    <script id="todos-data" type="application/json">
+      {{{TODOS}}}
+    </script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
